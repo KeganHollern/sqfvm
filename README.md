@@ -25,9 +25,12 @@ SCRIPT       : Token: SEMICOLON, 28, ";"
 ```
 
 ## Parser
-Incomplete
+Parses token output from the Lexer into an [Abstract Syntax Tree](https://en.wikipedia.org/wiki/Abstract_syntax_tree).
+
+Incomplete.
 
 ## Interpreter
-Incomplete
+Runtime interpreter.
+
 
 
