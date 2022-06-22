@@ -1,0 +1,8 @@
+GameProject {
+ ID "SQFVM"
+ GUID "59AA6335A8857CA5"
+ TITLE "SQFVM"
+ Dependencies {
+  "58D0FB3206B6F859"
+ }
+}
