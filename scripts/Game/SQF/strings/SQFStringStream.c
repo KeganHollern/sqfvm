@@ -55,6 +55,10 @@ class SQFStringStream {
 	{
 		return m_Buffer.Length();
 	}
+	string At(int index)
+	{
+		return m_Buffer.Get(index);
+	}
 	
 	// get substring from stream
 	string GetText(int start, int length) 

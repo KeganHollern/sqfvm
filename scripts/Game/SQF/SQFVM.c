@@ -16,6 +16,33 @@ SQFVM GetScriptEngine() {
 }
 
 class SQFVM {
+	
+	// same as `LoadFile` script function
+	static string LoadScript(ResourceName res)
+	{
+		Resource holder = BaseContainerTools.LoadContainer(res);
+		if(!holder.IsValid()) 
+		{
+			Print("failed to load script from: " + res, LogLevel.ERROR);
+			return "";
+		}
+		BaseContainer container = holder.GetResource().ToBaseContainer();
+		if(!container)
+		{
+			Print("failed to load container from: " + res, LogLevel.ERROR);
+			return "";
+		}
+		SQF_ScriptConfig sqf_container = SQF_ScriptConfig.Cast(BaseContainerTools.CreateInstanceFromContainer(container));
+		if(!sqf_container)
+		{
+			Print("failed to read script from: " + res, LogLevel.ERROR);
+			return "";
+		}
+		
+		return sqf_container.GetScript();
+	}
+	
+	
 	void SQFVM() 
 	{
 		Init();
@@ -43,6 +70,7 @@ class SQFVM {
 	protected void tick() 
 	{
 		// tick the script engine
+		// what is going to call this? should we register in GetGame().GetCallQueue	and call every 1ms ?
 	}
 }
 
